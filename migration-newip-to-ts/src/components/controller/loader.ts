@@ -19,8 +19,8 @@ class Loader {
     { endpoint = '', options = {} },
     callback = () => {
       console.error('No callback for GET response');
-    }
-    ): void {
+    },
+  ): void {
     this.load('GET', endpoint, callback, options);
   }
 

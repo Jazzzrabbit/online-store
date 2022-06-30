@@ -42,7 +42,7 @@ export type TArticleValues = {
   urlToImage: string,
   publishedAt: string,
   content: string,
-}
+};
 
 export type TSourceValues = {
   id: string,
@@ -52,8 +52,8 @@ export type TSourceValues = {
   category: string,
   language: string,
   country: string,
-}
+};
 
 export type TUrlOptions = {
   [prop: string]: string
-}
+};

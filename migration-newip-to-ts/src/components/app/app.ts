@@ -14,7 +14,8 @@ class App {
 
   public start(): void {
     document?.querySelector('.sources')?.addEventListener('click', (e: Event) => {
-      return this.controller.getNews(e, (data: void) => this.view.drawNews(data))});
+      return this.controller.getNews(e, (data: void) => this.view.drawNews(data));
+    });
     this.controller.getSources((data: Pick<ISourceObjects, 'sources'> | void) => this.view.drawSources(data));
   }
 }

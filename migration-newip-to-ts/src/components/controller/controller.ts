@@ -26,7 +26,7 @@ class AppController extends AppLoader {
                 sources: sourceId,
               },
             },
-            callback
+            callback,
           );
         }
         return;
