@@ -1,38 +1,85 @@
 .sources {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    width: 300px;
-    height: 75vh;
-    overflow: auto;
-    align-items: center;
-    font: 300 1em 'Fira Sans', sans-serif;
-    margin-right: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  width: 300px;
+  height: 75vh;
+  overflow: auto;
+  align-items: center;
+  font: 300 1em 'Fira Sans', sans-serif;
+  margin-right: 40px;
 }
 
 .source__item {
-    max-width: 100%;
-    width: 90%;
-    background: none;
-    border: 2px solid #30c5ff;
-    font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 1em;
-    color: #70d6ff;
-    transition: 0.25s;
-    cursor: pointer;
+  max-width: 100%;
+  width: 90%;
+  background: none;
+  border: 2px solid #30c5ff;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 1em;
+  color: #70d6ff;
+  transition: 0.25s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
-    transform: translateY(-0.25em);
+  border-color: #3fcc59;
+  color: #69db7e;
+  box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+  transform: translateY(-0.25em);
 }
 
 .source__item-name {
-    font-weight: 400;
-    white-space: nowrap;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .sources {
+    width: 260px;
+  }
+  .source__item {
+    padding: 1em 0.5em;
+  }
+}
+
+@media (max-width: 920px) {
+  .sources {
+    width: 200px;
+  }
+  .source__item {
+    padding: 1em 0.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .sources {
+    width: 0;
+    margin-right: 0;
+    transition: all .5s ease;
+  }
+  .sources--active {
+    width: 99%;
+    position: absolute;
+    z-index: 5;
+    background-color: #333;
+  }
+  .span--active {
+    transform: rotate(-45deg);
+  }
+  
+  .span--active::before {
+    transform: rotate(-90deg);
+    top: 0!important;
+  }
+  
+  .span--active::after {
+    opacity: 0;
+  }
 }
