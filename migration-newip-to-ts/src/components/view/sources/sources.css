@@ -1,20 +1,24 @@
 .sources {
     display: flex;
     flex-wrap: nowrap;
-    width: 100%;
-    height: 120px;
+    flex-direction: column;
+    width: 300px;
+    height: 75vh;
     overflow: auto;
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
+    margin-right: 40px;
 }
 
 .source__item {
+    max-width: 100%;
+    width: 90%;
     background: none;
     border: 2px solid #30c5ff;
     font: inherit;
     line-height: 1;
     margin: 0.5em;
-    padding: 1em 2em;
+    padding: 1em 1em;
     color: #70d6ff;
     transition: 0.25s;
     cursor: pointer;
