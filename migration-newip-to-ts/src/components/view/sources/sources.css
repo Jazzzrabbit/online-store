@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   flex-direction: column;
   width: 300px;
+  min-width: 260px;
   height: 75vh;
   overflow: auto;
   align-items: center;
@@ -49,6 +50,7 @@
 @media (max-width: 767px) {
   .sources {
     width: 0;
+    min-width: 0;
     margin-right: 0;
     transition: all .5s ease;
   }
