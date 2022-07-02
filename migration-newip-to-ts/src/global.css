@@ -49,6 +49,7 @@ footer .copyright:before {
 }
 
 .github {
+  max-width: 300px;
   color: #333;
 }
 
@@ -98,6 +99,28 @@ footer .copyright:before {
 @media (max-width: 767px) {
   .burger {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    width: 100px;
+    height: 30px;
+  }
+  .footer__wrapper {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 530px) {
+  .github {
+    max-width: 130px;
+  }
+}
+
+@media (max-width: 400px) {
+  .github {
+    max-width: 100px;
   }
 }
 

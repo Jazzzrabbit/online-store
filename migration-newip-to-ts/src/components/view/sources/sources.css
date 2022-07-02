@@ -40,19 +40,7 @@
   white-space: nowrap;
 }
 
-@media (max-width: 1023px) {
-  .sources {
-    width: 260px;
-  }
-  .source__item {
-    padding: 1em 0.5em;
-  }
-}
-
-@media (max-width: 920px) {
-  .sources {
-    width: 200px;
-  }
+@media (max-width: 1024px) {
   .source__item {
     padding: 1em 0.5em;
   }
