@@ -9,8 +9,7 @@ class News {
     const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;
 
     news.forEach((item: TArticleValues, idx: number) => {
-      const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement | null;
-      if (newsClone === null) throw new Error('No idea what went wrong.');
+      const newsClone = newsItemTemp.content.cloneNode(true) as HTMLElement;
 
       if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
 

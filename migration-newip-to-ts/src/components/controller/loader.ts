@@ -1,4 +1,4 @@
-import { TUrlOptions } from '../../interface/interface';
+import { TUrlOptions, ISourceObjects, IArticleObjects } from '../../interface/interface';
 
 enum StatusCodes {
   Unauthorized = 401,
@@ -17,7 +17,7 @@ class Loader {
 
   public getResp(
     { endpoint = '', options = {} },
-    callback = () => {
+    callback: (data: IArticleObjects | ISourceObjects) => void = () => {
       console.error('No callback for GET response');
     },
   ): void {
@@ -45,11 +45,12 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  private load(method: string, endpoint: string, callback: <T>(arg: T | undefined) => void, options = {}) {
+  private load(method: string, endpoint: string, callback: (data: IArticleObjects | ISourceObjects) => 
+  void, options = {}) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res: Response) => res.json())
-      .then((data: string) => callback(data))
+      .then((data: IArticleObjects | ISourceObjects) => callback(data))
       .catch((err: Event) => console.error(err));
   }
 }
