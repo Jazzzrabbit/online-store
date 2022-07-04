@@ -4,7 +4,7 @@ import { TSourceValues } from '../../../interface/interface';
 class Sources {
   public draw(data: TSourceValues[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
-    const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement | null;
+    const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
     if (sourceItemTemp === null) throw new Error('Serious error. Deal with it.');
     
     data.forEach((item: TSourceValues) => {

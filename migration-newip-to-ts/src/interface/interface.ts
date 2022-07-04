@@ -1,5 +1,5 @@
-export interface IArticleObjects {
-  articles: [
+export interface Data {
+  articles?: [
     {
       source: {
         id: null | string,
@@ -13,11 +13,8 @@ export interface IArticleObjects {
       publishedAt: string,
       content: string,
     },
-  ]
-}
-
-export interface ISourceObjects {
-  sources: [
+  ],
+  sources?: [
     {
       id: string, 
       name: string,

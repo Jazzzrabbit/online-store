@@ -1,6 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { IArticleObjects, ISourceObjects, TArticleValues, TSourceValues } from '../../interface/interface';
+import { TArticleValues, TSourceValues, Data } from '../../interface/interface';
 
 export class AppView {
   private readonly news: News;
@@ -12,12 +12,12 @@ export class AppView {
     this.sources = new Sources();
   }
 
-  public drawNews(data: IArticleObjects): void {
+  public drawNews(data: Data): void {
     const values: TArticleValues[] = data?.articles ?? [];
     this.news.draw(values);
   }
 
-  drawSources(data: ISourceObjects): void {
+  drawSources(data: Data): void {
     const values: TSourceValues[] = data?.sources ?? [];
     this.sources.draw(values);
   }

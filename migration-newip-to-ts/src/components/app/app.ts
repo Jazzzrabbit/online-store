@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { ISourceObjects, IArticleObjects } from '../../interface/interface';
+import { Data } from '../../interface/interface';
 
 class App {
   public controller: AppController;
@@ -13,12 +13,10 @@ class App {
   }
 
   public start(): void {
-    document?.querySelector('.sources')?.addEventListener('click', (e: Event) => {
-      return this.controller.getNews(e, (data: IArticleObjects | ISourceObjects) => 
-        this.view.drawNews(data as IArticleObjects));
+    document?.querySelector('.sources')?.addEventListener('click', (e: Event): void => {
+      return this.controller.getNews(e, (data: Pick<Data, 'articles'>): void => this.view.drawNews(data));
     });
-    this.controller.getSources((data: Pick<ISourceObjects, 'sources'> | IArticleObjects) => 
-      this.view.drawSources(data as Pick<ISourceObjects, 'sources'>)); 
+    this.controller.getSources((data: Pick<Data, 'sources'>): void => this.view.drawSources(data)); 
   }
 }
 
