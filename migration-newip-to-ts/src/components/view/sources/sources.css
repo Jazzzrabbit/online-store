@@ -11,6 +11,15 @@
   margin-right: 40px;
 }
 
+.sources::-webkit-scrollbar-thumb {
+  background-color:#30c5ff;
+  border-radius: 30%;
+}
+
+.sources::-webkit-scrollbar {
+  background-color:#444;
+}
+
 .source__item {
   max-width: 100%;
   width: 90%;
