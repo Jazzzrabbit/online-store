@@ -23,5 +23,3 @@ class App {
 }
 
 export default App;
-
-//this.controller.getSources((data: Pick<ISourceObjects, 'sources'> | void) => this.view.drawSources(data));

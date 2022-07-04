@@ -2,7 +2,7 @@ import { TUrlOptions, ISourceObjects, IArticleObjects } from '../../interface/in
 
 enum StatusCodes {
   Unauthorized = 401,
-  'Not Found' = 404,
+  Not_Found = 404,
 }
 
 class Loader {
@@ -26,7 +26,7 @@ class Loader {
 
   private errorHandler(res: Response): Response {
     if (!res.ok) {
-      if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes['Not Found'])
+      if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes.Not_Found)
         console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
       throw Error(res.statusText);
     }
