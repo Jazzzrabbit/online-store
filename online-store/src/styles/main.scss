@@ -61,3 +61,36 @@ body {
     height: 6rem;
   }
 }
+
+.footer {
+  padding: 1.5rem;
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__git {
+    text-decoration: none;
+    color: #000000;
+    font-family: 'San Francisco', sans-serif;
+    font-weight: 400;
+  }
+
+  &__text {
+    font-family: 'Chococooky', sans-serif;
+    font-size: 1.5rem;
+  }
+
+  &__rslogo {
+    background-image: url(../assets/img/rs_school_js.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 5rem;
+    height: 2rem;
+  }
+
+}
