@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf|)$/i,
-        type: 'asset/resourse',
+        type: 'asset/inline',
       },
       {
         test: /\.js$/,
