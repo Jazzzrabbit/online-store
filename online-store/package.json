@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve watch --open-app-name 'chromium'  --config ./webpack.config.js --env mode=development",
+    "start": "webpack serve --open-app-name 'chromium'  --config ./webpack.config.js --env mode=development",
     "build": "webpack --config ./webpack.config.js --env mode=production",
     "lint": "eslint . --ext .ts"
   },

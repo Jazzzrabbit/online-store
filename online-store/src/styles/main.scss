@@ -231,6 +231,9 @@
     cursor: pointer;
     width: 2rem;
     height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -290,4 +293,12 @@
 .added {
   border-color: #000000;
   box-shadow: 0 0.2rem 0.7rem 0.7rem rgb(218 165 32 / 70%);
+}
+
+.hidden {
+  transform: scale(-100%);
+}
+
+.very-hidden {
+  display: none;
 }

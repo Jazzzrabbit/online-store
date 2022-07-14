@@ -5,10 +5,12 @@ import { cards } from './model/card';
 import { viewChosen } from './view/viewChosen';
 import viewSorted from './view/viewSorted';
 import adToCart from './controller/adToCart';
+import viewSearched from './view/viewSearched';
 
 createSlider();
 viewCards(cards);
 viewChosen(cards);
 viewSorted(viewCards);
 adToCart();
+viewSearched();
 
