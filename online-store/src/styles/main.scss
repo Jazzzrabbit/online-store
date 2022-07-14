@@ -198,13 +198,12 @@
 .card {
   border: 3px solid #B8860B;
   width: 11rem;
-  height: 21rem;
+  height: 22rem;
   display: flex;
   flex-direction: column;
   transition: all 1s ease;
   background-color: #DEB887;
   box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 
   &__img {
     width: 9rem;
@@ -220,6 +219,18 @@
     list-style-type: none;
     padding: 1rem;
     justify-content: center;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    gap: 0.1rem;
+  }
+
+  &__span {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
   }
 }
 
@@ -237,6 +248,10 @@
 
 .list__item {
   margin-bottom: 0.3rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .footer {
@@ -270,5 +285,9 @@
     width: 5rem;
     height: 2rem;
   }
+}
 
+.added {
+  border-color: #000000;
+  box-shadow: 0 0.2rem 0.7rem 0.7rem rgb(218 165 32 / 70%);
 }

@@ -1,6 +1,6 @@
 import ICard from '../model/interface';
 import viewCards from './viewCards';
-import { cards } from '../components/card';
+import { cards } from '../model/card';
 
 export function viewChosen(cardsArr: Array<ICard>): void {
   let arr: Array<ICard> = JSON.parse(JSON.stringify(cardsArr));

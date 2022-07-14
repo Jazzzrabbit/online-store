@@ -8,11 +8,17 @@ export default function viewCards(cardArr: Array<ICard>): void {
     const div: HTMLDivElement = document.createElement('div');
     const img: HTMLPictureElement = document.createElement('img');
     const ul: HTMLUListElement = document.createElement('ul');
+    const button: HTMLDivElement = document.createElement('div');
+    const spanLeft = document.createElement('span');
+    const spanRight: HTMLSpanElement = document.createElement('span');
     
     div.classList.add('card');
     img.classList.add('card__img');
     ul.classList.add('card__list');
-
+    button.classList.add('card__button');
+    spanLeft.classList.add('card__leftButton', 'card__span');
+    spanRight.classList.add('card__rightButton', 'card__span');
+    
     if (cardArr[i].color === 'red') {
       img.classList.add('red-box');
     }
@@ -26,6 +32,12 @@ export default function viewCards(cardArr: Array<ICard>): void {
     main.appendChild(div);
     div.appendChild(img);
     div.appendChild(ul);
+    div.appendChild(button);
+    button.appendChild(spanLeft);
+    button.appendChild(spanRight);
+
+    spanLeft.innerHTML = '-';
+    spanRight.innerHTML = '+';
     
     for (let k = 0; k < 6; k++) {
       const fields: string[] = ['name', 'amount', 'color', 'quality', 'year', 'price'];

@@ -1,7 +1,7 @@
 import * as noUiSlider from 'nouislider';
 import viewCards from '../view/viewCards';
 import ICard from '../model/interface';
-import { cards } from './card';
+import { cards } from '../model/card';
 
 export default function createSlider() {
   const amountSlider: noUiSlider.target = document.getElementById('amountSlider') as HTMLElement;
