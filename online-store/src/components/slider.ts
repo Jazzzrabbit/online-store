@@ -1,10 +1,13 @@
 import * as noUiSlider from 'nouislider';
+import viewCards from '../view/viewCards';
+import ICard from '../model/interface';
+import { cards } from './card';
 
 export default function createSlider() {
-  const slider: noUiSlider.target = document.getElementById('slider') as HTMLElement;
-  const slider2: noUiSlider.target = document.getElementById('slider2') as HTMLElement;
+  const amountSlider: noUiSlider.target = document.getElementById('amountSlider') as HTMLElement;
+  const yearSlider: noUiSlider.target = document.getElementById('yearSlider') as HTMLElement;
 
-  noUiSlider.create(slider, {
+  noUiSlider.create(amountSlider, {
     start: [1, 8],
     connect: true,
     tooltips: true,
@@ -22,13 +25,13 @@ export default function createSlider() {
       },
     },
   });
-  noUiSlider.create(slider2, {
-    start: [2000, 2022],
+  noUiSlider.create(yearSlider, {
+    start: [2015, 2022],
     connect: true,
     tooltips: true,
     step: 1,
     range: {
-      'min': 2000,
+      'min': 2015,
       'max': 2022,
     },
     format: {
@@ -40,4 +43,15 @@ export default function createSlider() {
       },
     },
   });
+
+  amountSlider.noUiSlider?.on('change', values => {
+    const slidedArr: Array<ICard> = cards.filter(card => card.amount >= values[0] && card.amount <= values[1]);
+    viewCards(slidedArr);
+  });
+
+  yearSlider.noUiSlider?.on('change', values => {
+    const slidedArr: Array<ICard> = cards.filter(card => card.year >= values[0] && card.year <= values[1]);
+    viewCards(slidedArr);
+  });
 } 
+
