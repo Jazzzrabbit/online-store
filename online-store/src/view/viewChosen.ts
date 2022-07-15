@@ -1,34 +1,41 @@
-import ICard from '../model/interface';
-import viewCards from './viewCards';
-import { cards } from '../model/card';
-
-export function viewChosen(cardsArr: Array<ICard>): void {
-  let arr: Array<ICard> = JSON.parse(JSON.stringify(cardsArr));
-  let prevItems: Array<ICard> = [];
+export default function viewChosen(): void {
   const checkboxes: NodeListOf<Element> = document.querySelectorAll('.checkbox');
-  
+  const cards: NodeListOf<Element> = document.querySelectorAll('.card');
+  let checked: string[] = [];
+
   checkboxes.forEach(checkbox => {
     checkbox.addEventListener('click', (e) => {
-      const id = ((e.target as Element).id);
-      const checked = document.getElementById(id) as HTMLInputElement;
-      const classQ: boolean = checked.classList.contains('quality');
-      const classC: boolean = checked.classList.contains('color');
-      localStorage.cardsOnScreen = JSON.stringify(cards);
-
-      if (checked.checked && classQ || checked.checked && classC) {
-        arr = JSON.parse(localStorage.cardsOnScreen).filter((item: { quality: string; color: string; }) => 
-          item.quality === id || item.color === id);
-          
-        prevItems = JSON.parse(localStorage.cardsOnScreen).filter((item: { quality: string; color: string; }) => 
-          item.quality !== id || item.color !== id);
-        localStorage.cardsOnScreen = JSON.stringify(arr);
-        viewCards(JSON.parse(localStorage.cardsOnScreen));
-      } else {
-        // localStorage.clear();
-        localStorage.cardsOnScreen = JSON.stringify(prevItems);
-        
-        viewCards(JSON.parse(localStorage.cardsOnScreen));
+      const id: string = ((e.target as Element).id);
+      
+      if (e.target) {
+        if (!checked.includes(id)) {
+          checked.push(id);
+        } else {
+          checked = checked.filter(item => item !== id);
+        }
       }
+      
+      if (checked.length === 0) {
+        cards.forEach(card => {
+          card.classList.remove('hidden');
+          card.classList.remove('very-hidden');   
+        });
+      } else {
+        cards.forEach(card => {
+          const cardColor = card.querySelector('.color')?.innerHTML.split(': ')[1] as string;
+          const cardQuality = card.querySelector('.quality')?.innerHTML.split(': ')[1] as string;
+          if (!checked.includes(cardColor) && !checked.includes(cardQuality)) {
+            card.classList.add('hidden');  
+            setTimeout(() => {
+              card.classList.add('very-hidden');  
+            }, 400);        
+          } else {    
+            card.classList.remove('hidden');  
+            card.classList.remove('very-hidden');     
+          }        
+        });
+      }   
     });
   }); 
 }
+

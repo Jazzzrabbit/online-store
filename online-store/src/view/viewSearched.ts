@@ -10,12 +10,10 @@ export default function viewSearched(): void {
         card.classList.add('hidden');
         setTimeout(() => {
           card.classList.add('very-hidden');
-        }, 240);
+        }, 400);
       } else {
         card.classList.remove('hidden');
-        setTimeout(() => {
-          card.classList.remove('very-hidden');
-        }, 240);
+        card.classList.remove('very-hidden');
       }
     });
   });
