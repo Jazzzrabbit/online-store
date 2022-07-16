@@ -43,8 +43,10 @@ export default function viewCards(cardArr: Array<ICard>): void {
       const fields: string[] = ['name', 'amount', 'color', 'quality', 'year', 'price'];
       const li: HTMLLIElement = document.createElement('li');
       li.classList.add('list__item');
+      if (fields[k] === 'name') li.classList.add('name');
       if (fields[k] === 'color') li.classList.add('color');
       if (fields[k] === 'quality') li.classList.add('quality');
+      if (fields[k] === 'year') li.classList.add('year');
       ul.appendChild(li);
       const text: string | number = cardArr[i][fields[k] as keyof ICard];
       li.innerHTML = `${fields[k]}: ${text}`;
