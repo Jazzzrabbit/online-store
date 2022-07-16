@@ -12,7 +12,7 @@ export default function viewCards(cardArr: Array<ICard>): void {
     const spanLeft = document.createElement('span');
     const spanRight: HTMLSpanElement = document.createElement('span');
     
-    div.classList.add('card');
+    div.classList.add('card', 'visible');
     img.classList.add('card__img');
     ul.classList.add('card__list');
     button.classList.add('card__button');
@@ -48,7 +48,7 @@ export default function viewCards(cardArr: Array<ICard>): void {
       if (fields[k] === 'quality') li.classList.add('quality');
       if (fields[k] === 'year') li.classList.add('year');
       ul.appendChild(li);
-      const text: string | number = cardArr[i][fields[k] as keyof ICard];
+      const text: string | number | boolean = cardArr[i][fields[k] as keyof ICard];
       li.innerHTML = `${fields[k]}: ${text}`;
     }
   }

@@ -19,6 +19,7 @@ export default function viewChosen(): void {
         cards.forEach(card => {
           card.classList.remove('hidden');
           card.classList.remove('very-hidden');   
+          card.classList.add('visible');  
         });
       } else {
         cards.forEach(card => {
@@ -26,15 +27,17 @@ export default function viewChosen(): void {
           const cardQuality = card.querySelector('.quality')?.innerHTML.split(': ')[1] as string;
           if (!checked.includes(cardColor) && !checked.includes(cardQuality)) {
             card.classList.add('hidden');  
+            card.classList.remove('visible'); 
             setTimeout(() => {
               card.classList.add('very-hidden');  
             }, 400);        
           } else {    
             card.classList.remove('hidden');  
-            card.classList.remove('very-hidden');     
+            card.classList.remove('very-hidden');   
+            card.classList.add('visible');   
           }        
         });
-      }   
+      }  
     });
   }); 
 }

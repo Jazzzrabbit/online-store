@@ -1,7 +1,7 @@
 import * as noUiSlider from 'nouislider';
 import viewCards from '../view/viewCards';
 import ICard from '../model/interface';
-import { cards } from '../model/card';
+import cardsOnScreen from '../controller/cardsOnScreen';
 
 export default function createSlider() {
   const amountSlider: noUiSlider.target = document.getElementById('amountSlider') as HTMLElement;
@@ -45,13 +45,15 @@ export default function createSlider() {
   });
 
   amountSlider.noUiSlider?.on('change', values => {
+    const cards: ICard[] = cardsOnScreen();
     const slidedArr: Array<ICard> = cards.filter(card => card.amount >= values[0] && card.amount <= values[1]);
     viewCards(slidedArr);
   });
 
   yearSlider.noUiSlider?.on('change', values => {
+    const cards: ICard[] = cardsOnScreen();
     const slidedArr: Array<ICard> = cards.filter(card => card.year >= values[0] && card.year <= values[1]);
     viewCards(slidedArr);
   });
-} 
+}
 
