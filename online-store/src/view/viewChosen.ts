@@ -17,8 +17,8 @@ export default function viewChosen(): void {
       
       if (checked.length === 0) {
         cards.forEach(card => {
-          card.classList.remove('hidden');
-          card.classList.remove('very-hidden');   
+          card.classList.remove('transformed');
+          card.classList.remove('hidden');   
           card.classList.add('visible');  
         });
       } else {
@@ -26,14 +26,14 @@ export default function viewChosen(): void {
           const cardColor = card.querySelector('.color')?.innerHTML.split(': ')[1] as string;
           const cardQuality = card.querySelector('.quality')?.innerHTML.split(': ')[1] as string;
           if (!checked.includes(cardColor) && !checked.includes(cardQuality)) {
-            card.classList.add('hidden');  
+            card.classList.add('transformed');  
             card.classList.remove('visible'); 
             setTimeout(() => {
-              card.classList.add('very-hidden');  
+              card.classList.add('hidden');  
             }, 400);        
           } else {    
-            card.classList.remove('hidden');  
-            card.classList.remove('very-hidden');   
+            card.classList.remove('transformed');  
+            card.classList.remove('hidden');   
             card.classList.add('visible');   
           }        
         });

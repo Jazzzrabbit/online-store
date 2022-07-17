@@ -7,13 +7,13 @@ export default function viewSearched(): void {
     
     cards.forEach(card => {
       if (!card.querySelector('.list__item')?.innerHTML.split(': ')[1].toLocaleLowerCase().includes(inputValue)) {
-        card.classList.add('hidden');
+        card.classList.add('transformed');
         setTimeout(() => {
-          card.classList.add('very-hidden');
+          card.classList.add('hidden');
         }, 400);
       } else {
+        card.classList.remove('transformed');
         card.classList.remove('hidden');
-        card.classList.remove('very-hidden');
       }
     });
   });
