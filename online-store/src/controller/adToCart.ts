@@ -1,20 +1,20 @@
 import { cards } from '../model/card';
 
 export default function adToCart(): void {
-  const spanBtns: NodeListOf<Element> = document.querySelectorAll('.card__span');
-  const cartSpan = document.querySelector('.header__shopcart') as Element;
-  const shopCart = cartSpan.firstElementChild as Element;
+  const cardButtons: NodeListOf<Element> = document.querySelectorAll('.card__span');
+  const cartCounterSpan = document.querySelector('.header__shopcart') as Element;
+  const shopCart = cartCounterSpan.firstElementChild as Element;
 
-  spanBtns.forEach(btn => {
+  cardButtons.forEach(btn => {
     btn.addEventListener('click', e => {     
-      const list: NodeListOf<Element> | undefined = (e.target as Element)
+      const cardContentList: NodeListOf<Element> | undefined = (e.target as Element)
         .parentNode?.parentNode?.querySelectorAll('.list__item'); 
       const rightBtn = (e.target as Element).classList.contains('card__rightButton'); 
       let counter = 1;
       let initialAmount = 0;
       
-      if (list) {
-        list.forEach(item => {
+      if (cardContentList) {
+        cardContentList.forEach(item => {
           const itemText: (string | number)[] = item.innerHTML.split(': ');
           let name: string | number = '';
           if (itemText[0] === 'name') {
