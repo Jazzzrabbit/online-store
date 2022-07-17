@@ -6,14 +6,14 @@ export default function cardsOnScreen(): ICard[] {
   const output: ICard[] = [];
 
   visibleCards.forEach(card => {
-    const list = card.querySelectorAll('.list__item');
+    const list: NodeListOf<Element> = card.querySelectorAll('.list__item');
 
     list.forEach(item => {
       arr.push(item.innerHTML);
     });
   });
 
-  const tempArr = [];
+  const tempArr: string[] = [];
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].includes('name') && i !== 0) {
@@ -29,7 +29,7 @@ export default function cardsOnScreen(): ICard[] {
 
   tempArr.unshift('{');
   tempArr.push('}');
-  let str = JSON.stringify(tempArr);
+  let str: string = JSON.stringify(tempArr);
 
   str = str.replace(/"/g, '');
   str = str.replace(/,name/g, '"name"');
