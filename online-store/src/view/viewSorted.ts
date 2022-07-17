@@ -1,27 +1,27 @@
-import ICard from '../model/interface';
 import { sortByNameHigh, sortByNameLow, sortByYearHigh, sortByYearLow } from '../components/sortFunctions';
 import cardsOnScreen from '../controller/cardsOnScreen';
+import viewCards from './viewCards';
 
 
-export default function viewSorted(viewFunc: (cardsArr: Array<ICard>) => void): void {
+export default function viewSorted(): void {
   const select = document.getElementById('select') as HTMLInputElement;
   
   select.addEventListener('click', () => {
     switch (select.value) {
       case ('option1'): {
-        viewFunc(sortByNameHigh(cardsOnScreen()));
+        viewCards(sortByNameHigh(cardsOnScreen()));   
         break;
       }
       case ('option2'): {
-        viewFunc(sortByNameLow(cardsOnScreen()));
+        viewCards(sortByNameLow(cardsOnScreen()));
         break;
       }
       case ('option3'): {
-        viewFunc(sortByYearHigh(cardsOnScreen()));
+        viewCards(sortByYearHigh(cardsOnScreen()));
         break;
       }
       case ('option4'): {
-        viewFunc(sortByYearLow(cardsOnScreen()));
+        viewCards(sortByYearLow(cardsOnScreen()));
         break;
       }
     }

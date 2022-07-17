@@ -10,6 +10,6 @@ import viewSearched from './view/viewSearched';
 createSlider();
 viewCards(cards);
 viewChosen();
-viewSorted(viewCards);
+viewSorted();
 adToCart();
 viewSearched();
