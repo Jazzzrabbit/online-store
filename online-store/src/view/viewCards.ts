@@ -6,10 +6,10 @@ export default function viewCards(cardArr: Array<ICard>): void {
 
   for (let i = 0; i < cardArr.length; i++) {
     const div: HTMLDivElement = document.createElement('div');
-    const img: HTMLPictureElement = document.createElement('img');
+    const img: HTMLImageElement = document.createElement('img');
     const ul: HTMLUListElement = document.createElement('ul');
     const button: HTMLDivElement = document.createElement('div');
-    const spanLeft = document.createElement('span');
+    const spanLeft: HTMLSpanElement = document.createElement('span');
     const spanRight: HTMLSpanElement = document.createElement('span');
     
     div.classList.add('card', 'visible');
@@ -36,11 +36,12 @@ export default function viewCards(cardArr: Array<ICard>): void {
     button.appendChild(spanLeft);
     button.appendChild(spanRight);
 
-    spanLeft.innerHTML = '-';
-    spanRight.innerHTML = '+';
+    spanLeft.innerText = '-';
+    spanRight.innerText = '+';
     
-    for (let k = 0; k < 6; k++) {
-      const fields: string[] = ['name', 'amount', 'color', 'quality', 'year', 'price'];
+    const fields: string[] = ['name', 'amount', 'color', 'quality', 'year', 'price'];
+
+    for (let k = 0; k < fields.length; k++) {
       const li: HTMLLIElement = document.createElement('li');
       li.classList.add('list__item');
       if (fields[k] === 'name') li.classList.add('name');
@@ -49,7 +50,7 @@ export default function viewCards(cardArr: Array<ICard>): void {
       if (fields[k] === 'year') li.classList.add('year');
       ul.appendChild(li);
       const text: string | number | boolean = cardArr[i][fields[k] as keyof ICard];
-      li.innerHTML = `${fields[k]}: ${text}`;
+      li.innerText = `${fields[k]}: ${text}`;
     }
   }
 }
