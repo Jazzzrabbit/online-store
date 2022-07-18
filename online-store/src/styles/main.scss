@@ -105,6 +105,15 @@
   margin-bottom: 1.5rem;
 }
 
+.label {
+  max-width: 6rem;
+  cursor: pointer;
+}
+
+.label:hover {
+  font-weight: 500;
+}
+
 .sortby {
   display: flex;
   flex-direction: column;
