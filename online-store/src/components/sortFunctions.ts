@@ -1,21 +1,63 @@
-import ICard from '../model/interface';
+export function sortByNameHigh(): void {
+  const cards: Element[] = [...document.querySelectorAll('.card')];
+  const content = document.getElementById('content') as HTMLElement;
 
-export function sortByNameHigh(cardsArr: Array<ICard>): Array<ICard> {
-  const arr: Array<ICard> = JSON.parse(JSON.stringify(cardsArr));
-  return arr.sort((obj1, obj2) => obj1.name > obj2.name ? 1 : -1);
+  const sorted = cards.sort((card1, card2) => {
+    return (card1.querySelector('.name')?.innerHTML as string) >
+      (card2.querySelector('.name')?.innerHTML as string) ? 1 : -1;
+  });
+
+  content.innerHTML = '';
+
+  for (const card of sorted) {
+    content.appendChild(card);
+  }
 }
 
-export function sortByNameLow(cardsArr: Array<ICard>): Array<ICard> {
-  const arr: Array<ICard> = JSON.parse(JSON.stringify(cardsArr));
-  return arr.sort((obj1, obj2) => obj1.name < obj2.name ? 1 : -1);
+export function sortByNameLow(): void {
+  const cards: Element[] = [...document.querySelectorAll('.card')];
+  const content = document.getElementById('content') as HTMLElement;
+
+  const sorted = cards.sort((card1, card2) => {
+    return (card1.querySelector('.name')?.innerHTML as string) <
+      (card2.querySelector('.name')?.innerHTML as string) ? 1 : -1;
+  });
+
+  content.innerHTML = '';
+
+  for (const card of sorted) {
+    content.appendChild(card);
+  }
 }
 
-export function sortByYearHigh(cardsArr: Array<ICard>): Array<ICard> {
-  const arr: Array<ICard> = JSON.parse(JSON.stringify(cardsArr));
-  return arr.sort((obj1, obj2) => obj2.year - obj1.year);
+export function sortByYearHigh(): void {
+  const cards: Element[] = [...document.querySelectorAll('.card')];
+  const content = document.getElementById('content') as HTMLElement;
+
+  const sorted = cards.sort((card1, card2) => {
+    return +(card2.querySelector('.year')?.innerHTML as string).split(': ')[1] -
+      +(card1.querySelector('.year')?.innerHTML as string).split(': ')[1];
+  });
+
+  content.innerHTML = '';
+
+  for (const card of sorted) {
+    content.appendChild(card);
+  }
 }
 
-export function sortByYearLow(cardsArr: Array<ICard>): Array<ICard> {
-  const arr: Array<ICard> = JSON.parse(JSON.stringify(cardsArr));
-  return arr.sort((obj1, obj2) => obj1.year - obj2.year);
+export function sortByYearLow(): void {
+  const cards: Element[] = [...document.querySelectorAll('.card')];
+  const content = document.getElementById('content') as HTMLElement;
+
+  const sorted = cards.sort((card1, card2) => {
+    return +(card1.querySelector('.year')?.innerHTML as string).split(': ')[1] -
+      +(card2.querySelector('.year')?.innerHTML as string).split(': ')[1];
+  });
+
+  content.innerHTML = '';
+
+  for (const card of sorted) {
+    content.appendChild(card);
+  }
 }
