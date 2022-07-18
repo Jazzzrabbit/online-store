@@ -1,7 +1,4 @@
 import * as noUiSlider from 'nouislider';
-import viewCards from '../view/viewCards';
-import ICard from '../model/interface';
-import cardsOnScreen from '../controller/cardsOnScreen';
 
 export default function createSlider() {
   const amountSlider: noUiSlider.target = document.getElementById('amountSlider') as HTMLElement;
@@ -44,18 +41,32 @@ export default function createSlider() {
     },
   });
 
-  amountSlider.noUiSlider?.on('change', values => {
-    const cards: ICard[] = cardsOnScreen();
+  function sortSlidedCards(values: (string | number)[]): void {
+    const cards = [...document.querySelectorAll('.card')];
     const [minValue, maxValue] = values;
-    const slidedArr: Array<ICard> = cards.filter(card => card.amount >= minValue && card.amount <= maxValue);
-    viewCards(slidedArr);
-  });
 
-  yearSlider.noUiSlider?.on('change', values => {
-    const cards: ICard[] = cardsOnScreen();
-    const [minValue, maxValue] = values;
-    const slidedArr: Array<ICard> = cards.filter(card => card.year >= minValue && card.year <= maxValue);
-    viewCards(slidedArr);
-  });
+    const slidedArr: Element[] = cards.filter(card =>
+      (card.querySelector('.amount')?.textContent as string).split(': ')[1] >= minValue
+      && (card.querySelector('.amount')?.textContent as string).split(': ')[1] <= maxValue ||
+      (card.querySelector('.year')?.textContent as string).split(': ')[1] >= minValue
+      && (card.querySelector('.year')?.textContent as string).split(': ')[1] <= maxValue);
+
+    cards.forEach(card => {
+      if (!slidedArr.includes(card)) {
+        card.classList.add('transformed');
+        setTimeout(() => {
+          card.classList.add('hidden');
+        }, 400);
+      } else {
+        card.classList.remove('transformed');
+        setTimeout(() => {
+          card.classList.remove('hidden');
+        }, 400);
+      }
+    });
+  }
+
+  amountSlider.noUiSlider?.on('change', sortSlidedCards);
+  yearSlider.noUiSlider?.on('change', sortSlidedCards);
 }
 
