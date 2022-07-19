@@ -42,7 +42,7 @@ export default function createSlider() {
   });
 
   function sortSlidedCards(values: (string | number)[]): void {
-    const cards = [...document.querySelectorAll('.card')];
+    const cards: Element[] = [...document.querySelectorAll('.card')];
     const [minValue, maxValue] = values;
 
     const slidedArr: Element[] = cards.filter(card =>

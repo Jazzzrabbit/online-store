@@ -5,7 +5,7 @@ export default function viewSearched(): void {
 
   search.addEventListener('input', e => {
     const inputValue: string = (e.target as HTMLInputElement).value.toLocaleLowerCase();
-
+  
     cards.forEach(card => {
       if (!(card.querySelector('.list__item')?.textContent as string)
         .split(': ')[1].toLocaleLowerCase().includes(inputValue)) {
@@ -24,12 +24,12 @@ export default function viewSearched(): void {
     });
 
     const visibleCards: NodeListOf<Element> = document.querySelectorAll('.visible');
-    
+
     if (visibleCards.length === 0) {
       setTimeout(() => {
         empty.classList.remove('hidden');
       }, 400);
-    } else  setTimeout(() => {
+    } else setTimeout(() => {
       empty.classList.add('hidden');
     }, 400);
   });
