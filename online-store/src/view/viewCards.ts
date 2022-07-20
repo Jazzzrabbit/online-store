@@ -18,16 +18,21 @@ export default function viewCards(cardArr: Array<ICard>): void {
     button.classList.add('card__button');
     spanLeft.classList.add('card__leftButton', 'card__span');
     spanRight.classList.add('card__rightButton', 'card__span');
-    
-    if (cardArr[i].color === 'red') {
-      img.classList.add('red-box');
-    }
-    if (cardArr[i].color === 'blue') {
-      img.classList.add('blue-box');
-    }
-    if (cardArr[i].color === 'green') {
-      img.classList.add('green-box');
-    }
+
+    switch (cardArr[i].color) {
+      case ('red'): {
+        img.classList.add('red-box');
+        break;
+      }
+      case ('blue'): {
+        img.classList.add('blue-box');
+        break;
+      }
+      case ('green'): {
+        img.classList.add('green-box');
+        break;
+      }
+    } 
     
     main.appendChild(div);
     div.appendChild(img);
@@ -44,11 +49,30 @@ export default function viewCards(cardArr: Array<ICard>): void {
     for (let k = 0; k < fields.length; k++) {
       const li: HTMLLIElement = document.createElement('li');
       li.classList.add('list__item');
-      if (fields[k] === 'name') li.classList.add('name');
-      if (fields[k] === 'amount') li.classList.add('amount');
-      if (fields[k] === 'color') li.classList.add('color');
-      if (fields[k] === 'quality') li.classList.add('quality');
-      if (fields[k] === 'year') li.classList.add('year');
+
+      switch (fields[k]) {
+        case ('name'): {
+          li.classList.add('name');
+          break;
+        } 
+        case ('amount'): {
+          li.classList.add('amount');
+          break;
+        } 
+        case ('color'): {
+          li.classList.add('color');
+          break;
+        } 
+        case ('quality'): {
+          li.classList.add('quality');
+          break;
+        } 
+        case ('year'): {
+          li.classList.add('year');
+          break;
+        } 
+      }
+
       ul.appendChild(li);
       const text: string | number | boolean = cardArr[i][fields[k] as keyof ICard];
       li.innerText = `${fields[k]}: ${text}`;
