@@ -43,13 +43,13 @@ export default function createSlider() {
 
   function sortSlidedCards(values: (string | number)[]): void {
     const cards: Element[] = [...document.querySelectorAll('.card')];
-    const [minValue, maxValue] = values;
+    const [minValue, maxValue]: (string | number)[] = values;
 
-    const slidedArr: Element[] = cards.filter(card =>
-      (card.querySelector('.amount')?.textContent as string).split(': ')[1] >= minValue
-      && (card.querySelector('.amount')?.textContent as string).split(': ')[1] <= maxValue ||
-      (card.querySelector('.year')?.textContent as string).split(': ')[1] >= minValue
-      && (card.querySelector('.year')?.textContent as string).split(': ')[1] <= maxValue);
+    const slidedArr: Element[] = cards.filter(card => {
+      const cardAmount: string = (card.querySelector('.amount')?.textContent as string).split(': ')[1];
+      const cardYear: string = (card.querySelector('.year')?.textContent as string).split(': ')[1];
+      return cardAmount >= minValue && cardAmount <= maxValue || cardYear >= minValue && cardYear <= maxValue;
+    });
 
     cards.forEach(card => {
       if (!slidedArr.includes(card)) {
