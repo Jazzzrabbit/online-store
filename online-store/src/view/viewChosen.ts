@@ -1,3 +1,9 @@
+function toggleCardsClass(card: Element): void {
+  card.classList.remove('transformed');
+  card.classList.add('visible');  
+  card.classList.remove('hidden'); 
+}
+
 export default function viewChosen(): void {
   const checkboxes: NodeListOf<Element> = document.querySelectorAll('.checkbox');
   const cards: NodeListOf<Element> = document.querySelectorAll('.card');
@@ -16,9 +22,7 @@ export default function viewChosen(): void {
       
       if (checked.length === 0) {
         cards.forEach(card => {
-          card.classList.remove('transformed');
-          card.classList.remove('hidden');   
-          card.classList.add('visible');  
+          toggleCardsClass(card);
         });
       } else {
         cards.forEach(card => {
@@ -31,9 +35,7 @@ export default function viewChosen(): void {
               card.classList.add('hidden');  
             }, 400);        
           } else {    
-            card.classList.remove('transformed');    
-            card.classList.remove('hidden'); 
-            card.classList.add('visible');   
+            toggleCardsClass(card);
           }        
         });
       }  
